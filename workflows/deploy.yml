@@ -18,13 +18,13 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: <AWS_REGION>
+          aws-region: us-east-1
 
       - name: Create ECR repository
         run: |
-          aws ecr create-repository --repository-name <REPO_NAME> --region <AWS_REGION>
+          aws ecr create-repository --repository-name desafiorep --region us-east-1
 
       - name: Create Elastic Beanstalk environment
         run: |
-          aws elasticbeanstalk create-application --application-name <APP_NAME> --region <AWS_REGION>
-          aws elasticbeanstalk create-environment --environment-name <ENV_NAME> --application-name <APP_NAME> --solution-stack-name <SOLUTION_STACK> --region <AWS_REGION>
+          aws elasticbeanstalk create-application --application-name desafio --region us-east-1
+          aws elasticbeanstalk create-environment --environment-name desafioname --application-name desafio --solution-stack-name 64bit Amazon Linux 2 v5.4.3 running Node.js 14 --region us-east-1
